@@ -256,7 +256,7 @@ const feePayment = async (req, res,next) => {
             registerId: studentId,
             batch: batchId,
             amount: amountToPay,
-            status: "Pending",
+            status: "Cancelled",
             type:req.body.option
         })
         const reffereceId = paymentData._id
