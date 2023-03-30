@@ -21,9 +21,9 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-app.use("/office", officeRouter);
-app.use("/teacher", teacherRouter);
-app.use("/student",  studentRouter);
+app.use("/backend/office", officeRouter);
+app.use("/backend/teacher", teacherRouter);
+app.use("/backend/student",  studentRouter);
    
 app.use(errorHandler);
 
