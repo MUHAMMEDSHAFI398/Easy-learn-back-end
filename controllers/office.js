@@ -630,7 +630,7 @@ module.exports = {
                     }
                 }
             ])
-            const feeCompletionRate = ((totalPaidAmount[0].total / activeBatchesTotalFee[0].total) * 100).toFixed(2)
+            const feeCompletionRate = ((totalPaidAmount[0]?.total / activeBatchesTotalFee[0]?.total) * 100)?.toFixed(2)
 
             const batchData = await batch.aggregate([
                 {
