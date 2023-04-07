@@ -789,7 +789,6 @@ const studentLeaveReject = async (req, res, next) => {
 const studentPerformance = async (req, res, next) => {
     const studentId = req.params.id
     const teacherId = req.registerId
-    console.log('jiji')
     try {
         const studentPerformance = await student.aggregate([
             {
@@ -846,7 +845,7 @@ const studentPerformance = async (req, res, next) => {
                 }
             }
         ])
-        const feeCompletionRate = ((totalPaidAmount[0].total / courseFee[0].fee) * 100).toFixed(2)
+        const feeCompletionRate = ((totalPaidAmount[0]?.total / courseFee[0].fee) * 100).toFixed(2)
         res.status(200).json(
             {
                 performance: studentPerformance[0].performance,
@@ -910,7 +909,7 @@ const batchPerformance = async (req, res, next) => {
                 }
             }
         ])
-        const feeCompletionRate = ((totalPaidAmount[0].total / totalFee[0].total) * 100).toFixed(2)
+        const feeCompletionRate = ((totalPaidAmount[0]?.total / totalFee[0]?.total) * 100).toFixed(2)
 
         const performance = await student.aggregate([
             {
@@ -929,8 +928,8 @@ const batchPerformance = async (req, res, next) => {
           console.log(performance );
         res.status(200).json({
             feeCompletionRate:parseFloat(feeCompletionRate),
-            avgPerformance:parseFloat((performance[0].avgPerformance).toFixed(2)),
-            avgattendance:parseFloat((performance[0].avgattendance).toFixed(2))
+            avgPerformance:parseFloat((performance[0]?.avgPerformance)?.toFixed(2)),
+            avgattendance:parseFloat((performance[0]?.avgattendance)?.toFixed(2))
         })
     } catch (err) {
         next(err)
